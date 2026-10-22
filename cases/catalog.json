@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "river-logger",
+      "num": "01",
+      "title": "The Vanishing River Logger",
+      "place": "Naches River corridor",
+      "short": "A stream sensor disappears before a community watershed demonstration.",
+      "field": "Environmental forensics",
+      "accent": "#45d9df",
+      "icon": "river",
+      "time": "22–30 min",
+      "file": "cases/river-logger.json",
+      "status": "ready"
+    },
+    {
+      "id": "canyon-samples",
+      "num": "02",
+      "title": "The Canyon Sample Switch",
+      "place": "Cowiche Canyon",
+      "short": "Two habitat specimens seem to have swapped labels during a survey.",
+      "field": "Biology & trace evidence",
+      "accent": "#c7f18b",
+      "icon": "canyon",
+      "time": "22–30 min",
+      "file": "cases/canyon-samples.json",
+      "status": "ready"
+    },
+    {
+      "id": "orchard-signal",
+      "num": "03",
+      "title": "The Orchard Signal",
+      "place": "Tieton and Yakima Valley orchards",
+      "short": "A false frost warning sends a fictional research crew searching for a bad reading.",
+      "field": "Physics & sensor analysis",
+      "accent": "#ffba83",
+      "icon": "orchard",
+      "time": "20–30 min",
+      "file": "cases/orchard-signal.json",
+      "status": "ready"
+    },
+    {
+      "id": "greenway-exhibit",
+      "num": "04",
+      "title": "The Greenway Exhibit Puzzle",
+      "place": "Yakima Greenway",
+      "short": "A museum-style science exhibit seems to have been secretly replaced.",
+      "field": "Materials & light",
+      "accent": "#b3a2ff",
+      "icon": "greenway",
+      "time": "22–30 min",
+      "file": "cases/greenway-exhibit.json",
+      "status": "ready"
+    },
+    {
+      "id": "selah-silent-station",
+      "num": "05",
+      "title": "The Silent Signal",
+      "place": "Selah foothills",
+      "short": "A fictional observation station stops transmitting after its equipment is rearranged.",
+      "field": "Electricity & digital evidence",
+      "accent": "#ffdf91",
+      "icon": "station",
+      "time": "23–30 min",
+      "file": "cases/selah-silent-station.json",
+      "status": "ready"
+    }
+  ]
+}

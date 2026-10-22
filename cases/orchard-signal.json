@@ -1,0 +1,318 @@
+{
+  "id": "orchard-signal",
+  "num": "03",
+  "title": "The Orchard Signal",
+  "place": "Tieton and Yakima Valley orchards",
+  "short": "A false frost warning sends a fictional research crew searching for a bad reading.",
+  "field": "Physics & sensor analysis",
+  "accent": "#ffba83",
+  "icon": "orchard",
+  "time": "20–30 min",
+  "brief": "At a fictional orchard monitoring demonstration outside Tieton, a prototype data screen suddenly reported a hard frost even though other instruments recorded mild conditions. Volunteers worry that someone altered the dataset. Examine sensor location, temperature trends, timestamps, and cable labels to determine what actually happened.",
+  "caseQuestion": "Which person reconfigured the sensor, and what created the misleading frost warning?",
+  "culprit": "amir",
+  "sites": [
+    {
+      "id": "screen",
+      "name": "Public data kiosk",
+      "label": "Digital frost-warning display",
+      "desc": "A blue line drops suddenly while a green control line stays level."
+    },
+    {
+      "id": "shade",
+      "name": "Test shelter",
+      "label": "Insulated comparison container",
+      "desc": "An active sensor sits inside a cooled laboratory practice chamber."
+    },
+    {
+      "id": "rows",
+      "name": "Demonstration orchard",
+      "label": "Fictional outdoor temperature station",
+      "desc": "A reference thermometer shows mild conditions."
+    },
+    {
+      "id": "bench",
+      "name": "Calibration bench",
+      "label": "Cable labels and instrument logs",
+      "desc": "Probe B was moved, but the dashboard label still says OUTDOOR."
+    }
+  ],
+  "clues": [
+    {
+      "id": "o1",
+      "title": "Split temperature chart",
+      "site": "screen",
+      "detail": "The public channel abruptly changes from 8°C to -4°C, while an independent nearby channel remains at 8°C. An abrupt single-channel change suggests inspecting the instrument.",
+      "question": "What should be checked first?",
+      "options": [
+        "The sensor and its connection",
+        "The orchard’s ownership",
+        "The spelling of a visitor name"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "o2",
+      "title": "Alert screenshot",
+      "site": "screen",
+      "detail": "The automatic alert reads FROST because the prototype rule triggers below 0°C. It does not verify outdoor conditions independently.",
+      "question": "What does the alert actually establish?",
+      "options": [
+        "The entire valley froze",
+        "The displayed sensor reading crossed a threshold",
+        "Every other instrument is wrong"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "o3",
+      "title": "Cold chamber note",
+      "site": "shade",
+      "detail": "The insulated test chamber is labeled -4°C TARGET. The probe wire runs out through a protected opening to the kiosk.",
+      "question": "Which explanation fits the dashboard change?",
+      "options": [
+        "Instant regional cold weather",
+        "A chemical spill",
+        "A chamber sensor appearing as an outdoor sensor"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "o4",
+      "title": "Reference reading",
+      "site": "rows",
+      "detail": "At 5:05, a handheld reference thermometer reads 8°C. Its calibration is recorded separately.",
+      "question": "What supports checking the frost alarm?",
+      "options": [
+        "An independent reference reading",
+        "The color of apples",
+        "A witness’s favorite season"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "o5",
+      "title": "Cable marker B",
+      "site": "bench",
+      "detail": "A cable-tag photograph shows OUTDOOR-B before the probe move. The kiosk software continued calling that cable an outdoor reading.",
+      "question": "What caused the label conflict?",
+      "options": [
+        "Sensor type determines the weather",
+        "A physical move without a software label update",
+        "The cable was a different color"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "o6",
+      "title": "Change-log gap",
+      "site": "bench",
+      "detail": "The official device log contains no entry for relocating sensor B. A handwritten personal note mentions a comparison test.",
+      "question": "What was missing?",
+      "options": [
+        "A map of the town",
+        "A second orchard",
+        "A shared configuration record"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "o7",
+      "title": "Timestamp match",
+      "site": "shade",
+      "detail": "The personal test note begins at 5:00, the same minute the public chart abruptly drops. The sequence and cable evidence agree.",
+      "question": "What does the matching time strengthen?",
+      "options": [
+        "A connection between the test and the alert",
+        "A claim that a storm struck",
+        "The identity of every visitor"
+      ],
+      "correct": 0
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab1",
+      "title": "Cooling probe model",
+      "method": "Thermal measurement",
+      "story": "Vary chamber temperature in a simplified sensor response model.",
+      "variable": {
+        "name": "Chamber setpoint",
+        "min": -10,
+        "max": 10,
+        "step": 2,
+        "unit": "°C"
+      },
+      "output": {
+        "name": "Probe reading",
+        "base": 1,
+        "factor": 1,
+        "unit": "°C",
+        "model": "linear"
+      },
+      "explanation": "A sensor reads its immediate environment, not an entire geographic region.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Sensor location matters when interpreting a reading.",
+        "Every sensor reading describes the entire valley.",
+        "Probe labels cannot be changed."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "lab2",
+      "title": "Sensor delay model",
+      "method": "Response time",
+      "story": "Vary an illustrative response lag and compare time to update.",
+      "variable": {
+        "name": "Lag setting",
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "unit": "steps"
+      },
+      "output": {
+        "name": "Update time",
+        "base": 0,
+        "factor": 6,
+        "unit": "s",
+        "model": "linear"
+      },
+      "explanation": "Slower update settings create longer displayed response times.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Longer lag shortens response time.",
+        "Higher lag increases response time in this model.",
+        "Response time proves deliberate sabotage."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "lab3",
+      "title": "Alarm threshold",
+      "method": "Decision rules",
+      "story": "Change the threshold and examine when the example alert would activate.",
+      "variable": {
+        "name": "Threshold",
+        "min": -6,
+        "max": 6,
+        "step": 2,
+        "unit": "°C"
+      },
+      "output": {
+        "name": "Alarm index",
+        "base": 50,
+        "factor": 3,
+        "unit": "score",
+        "model": "linear"
+      },
+      "explanation": "Alerts follow configured rules; they must be interpreted with sensor placement.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "All thresholds create identical outcomes.",
+        "Alert rules identify a person.",
+        "A configured threshold changes when an alert occurs."
+      ],
+      "correct": 2
+    }
+  ],
+  "math": {
+    "prompt": "The outdoor reference is 8°C and the chamber probe reads -4°C. What is the absolute difference?",
+    "answer": 12,
+    "unit": "°C",
+    "hint": "Find the distance between -4 and +8 on a number line."
+  },
+  "events": [
+    {
+      "id": "e1",
+      "label": "Outdoor probes checked",
+      "time": "4:40"
+    },
+    {
+      "id": "e2",
+      "label": "Probe B moved for a test",
+      "time": "5:00"
+    },
+    {
+      "id": "e3",
+      "label": "Public frost warning appears",
+      "time": "5:01"
+    },
+    {
+      "id": "e4",
+      "label": "Reference reading recorded",
+      "time": "5:05"
+    }
+  ],
+  "evidence": [
+    "o3",
+    "o5",
+    "o7"
+  ],
+  "explanation": "The technician moved the connected probe to a cooled demonstration chamber and failed to update the shared display label. Independent data and timing show a misleading sensor label, not proof of an actual frost.",
+  "witnesses": [
+    {
+      "id": "amir",
+      "name": "Amir Solis",
+      "role": "Sensor technician",
+      "statement": "I worked with a comparison chamber near the display during the same period as the alert. I was testing how the probe responded.",
+      "followup": "I assumed the software names would be checked during final review.",
+      "question": "What log would help test Amir’s explanation of the alert?",
+      "options": [
+        "Probe assignment and chamber test times",
+        "A photo of the fruit stand",
+        "A wind direction guess"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "piper",
+      "name": "Piper Holt",
+      "role": "Weather presenter",
+      "statement": "I was preparing the evening forecast slides from the public dashboard. I did not visit the test enclosure.",
+      "followup": "When the chart jumped, I asked for a second thermometer.",
+      "question": "What step in Piper’s story is sound scientific practice?",
+      "options": [
+        "Rely only on the first alarm",
+        "Request a reference measurement",
+        "Assume every alert describes all orchards"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "sasha",
+      "name": "Sasha Liu",
+      "role": "Orchard project lead",
+      "statement": "I walked the demonstration rows with visitors and photographed the display.",
+      "followup": "The outdoor thermometer showed 8°C in one image.",
+      "question": "Which independent observation does Sasha offer?",
+      "options": [
+        "A weather prediction for next year",
+        "The name of a maintenance supplier",
+        "A reference thermometer photograph"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "cal",
+      "name": "Cal Rios",
+      "role": "Maintenance assistant",
+      "statement": "I carried cable clips to the equipment table and then closed the tool kit.",
+      "followup": "The probe wire was labeled B before the demonstration.",
+      "question": "What item could verify Cal’s cable-label recollection?",
+      "options": [
+        "An earlier cable-tag photograph",
+        "The color of the weather presenter’s coat",
+        "The number of visitors"
+      ],
+      "correct": 0
+    }
+  ],
+  "note": "Entirely fictional educational case using a real regional place name as setting. No actual person, facility, business, incident, or allegation is represented.",
+  "gradeBand": [
+    "5–6",
+    "7–8",
+    "9–10",
+    "11–12"
+  ]
+}

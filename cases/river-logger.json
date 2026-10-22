@@ -1,0 +1,318 @@
+{
+  "id": "river-logger",
+  "num": "01",
+  "title": "The Vanishing River Logger",
+  "place": "Naches River corridor",
+  "short": "A stream sensor disappears before a community watershed demonstration.",
+  "field": "Environmental forensics",
+  "accent": "#45d9df",
+  "icon": "river",
+  "time": "22–30 min",
+  "brief": "A fictional student research team prepared a public display of water data from the Naches River corridor. One sealed sensor unit disappeared from its marked station after wind and rain, and its recorded measurements were missing from the display. Three adults and one student volunteer were nearby. Determine who moved the sensor, where it went, and which evidence supports the explanation.",
+  "caseQuestion": "Who relocated the sensor, and does the evidence support damage, theft, or a protective move?",
+  "culprit": "theo",
+  "sites": [
+    {
+      "id": "station",
+      "name": "Station A",
+      "label": "Riverbank measuring post",
+      "desc": "A metal bracket with a dry outline where a sealed sensor sat."
+    },
+    {
+      "id": "gate",
+      "name": "Maintenance gate",
+      "label": "Service path",
+      "desc": "Fresh damp prints lead toward a secure storage area."
+    },
+    {
+      "id": "shed",
+      "name": "Calibration shed",
+      "label": "Equipment workbench",
+      "desc": "A blue carrying case rests behind labeled water meters."
+    },
+    {
+      "id": "display",
+      "name": "Watershed exhibit",
+      "label": "Community demonstration table",
+      "desc": "A display card still reports yesterday’s river reading."
+    }
+  ],
+  "clues": [
+    {
+      "id": "r1",
+      "title": "Empty bracket",
+      "site": "station",
+      "detail": "The bracket is intact and the bolts are unbroken. Its outline is dry under a thin layer of spray. The sensor was lifted off rather than struck away.",
+      "question": "Which explanation best fits an undamaged mount?",
+      "options": [
+        "A deliberate removal",
+        "A rock impact",
+        "A flood tearing out bolts"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "r2",
+      "title": "Photograph times",
+      "site": "station",
+      "detail": "Two observer photographs are timestamped 3:12 and 3:27. The unit appears in the first and is absent from the second. The original files are kept in the notebook.",
+      "question": "When was the sensor moved?",
+      "options": [
+        "Before 3:12",
+        "Between 3:12 and 3:27",
+        "After 3:27"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "r3",
+      "title": "Boot tread cast",
+      "site": "gate",
+      "detail": "A non-identifying impression has diagonal blocks and a narrow heel strip. The impression resembles general work-boot tread; it cannot uniquely identify any person.",
+      "question": "What is a responsible conclusion from tread alone?",
+      "options": [
+        "It names a person conclusively",
+        "It is unrelated to movement",
+        "It suggests footwear type, not identity"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "r4",
+      "title": "Blue case fibers",
+      "site": "shed",
+      "detail": "Short blue polymer threads on the clean counter match the texture of the calibration case lining. Both samples are compared under a virtual microscope.",
+      "question": "What does this fiber similarity support?",
+      "options": [
+        "Contact with a similar case",
+        "Proof of criminal intent",
+        "The exact time of transfer"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "r5",
+      "title": "Moisture log",
+      "site": "shed",
+      "detail": "A humidity meter records 81% near the river and 46% inside the shed. The case lid was open next to drying packets.",
+      "question": "Why might sheltered storage be useful?",
+      "options": [
+        "It increases river flow",
+        "It may reduce moisture exposure",
+        "It guarantees no sensor failure"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "r6",
+      "title": "Inventory omission",
+      "site": "display",
+      "detail": "The paper checklist is signed at 3:10, before the sensor vanished. No transfer entry was written afterward.",
+      "question": "What is the record-keeping problem?",
+      "options": [
+        "The weather station is broken",
+        "The checklist proves theft",
+        "The chain-of-custody record is incomplete"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "r7",
+      "title": "Calibration sticker",
+      "site": "shed",
+      "detail": "A dated sticker on the unit matches the serial number photographed on Station A. The device is switched off but not visibly broken.",
+      "question": "What most strongly connects the found unit to Station A?",
+      "options": [
+        "A matching recorded serial number",
+        "The color blue alone",
+        "Its location by a window"
+      ],
+      "correct": 0
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab1",
+      "title": "Sediment transport model",
+      "method": "River current and material movement",
+      "story": "Adjust current speed and compare modeled transport distances.",
+      "variable": {
+        "name": "Current speed",
+        "min": 0.3,
+        "max": 1.5,
+        "step": 0.2,
+        "unit": "m/s"
+      },
+      "output": {
+        "name": "Travel distance",
+        "base": 0,
+        "factor": 22,
+        "unit": "m",
+        "model": "linear"
+      },
+      "explanation": "Faster current increases simulated travel distance over a fixed observation interval.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Faster flow tends to carry suspended material farther.",
+        "Faster flow always proves sensor theft.",
+        "Water speed identifies a person."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "lab2",
+      "title": "Moisture drying model",
+      "method": "Equipment storage",
+      "story": "Adjust air humidity and observe an illustrative drying index.",
+      "variable": {
+        "name": "Humidity",
+        "min": 30,
+        "max": 90,
+        "step": 10,
+        "unit": "%"
+      },
+      "output": {
+        "name": "Drying index",
+        "base": 100,
+        "factor": -0.9,
+        "unit": "score",
+        "model": "linear"
+      },
+      "explanation": "In this instructional index, lower humidity corresponds to a higher drying score.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "More humidity makes drying faster.",
+        "Drier air can favor drying under similar conditions.",
+        "Humidity measures shoe size."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "lab3",
+      "title": "Footprint interval model",
+      "method": "Travel-time reasoning",
+      "story": "Adjust walking pace to estimate time along a fictional 120-meter service path.",
+      "variable": {
+        "name": "Walking speed",
+        "min": 0.5,
+        "max": 2,
+        "step": 0.25,
+        "unit": "m/s"
+      },
+      "output": {
+        "name": "Travel time",
+        "base": 120,
+        "factor": 0,
+        "unit": "s",
+        "model": "inverse"
+      },
+      "explanation": "The timing estimate supports a possible route but does not establish who traveled it.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Travel time is independent of speed.",
+        "A fast walker needs more time.",
+        "For the same distance, a higher speed requires less time."
+      ],
+      "correct": 2
+    }
+  ],
+  "math": {
+    "prompt": "The gap between the two photographs is 15 minutes. How many seconds is that?",
+    "answer": 900,
+    "unit": "seconds",
+    "hint": "Multiply minutes by 60."
+  },
+  "events": [
+    {
+      "id": "e1",
+      "label": "Exhibit inventory signed",
+      "time": "3:10"
+    },
+    {
+      "id": "e2",
+      "label": "Sensor visible in photograph",
+      "time": "3:12"
+    },
+    {
+      "id": "e3",
+      "label": "Sensor absent in later photograph",
+      "time": "3:27"
+    },
+    {
+      "id": "e4",
+      "label": "Unit identified in calibration shed",
+      "time": "4:05"
+    }
+  ],
+  "evidence": [
+    "r2",
+    "r4",
+    "r7"
+  ],
+  "explanation": "The matching serial number, shed fibers, and timestamped photographs support a transfer by the equipment technician. The absence of a written transfer note caused the mystery; the evidence does not establish a theft.",
+  "witnesses": [
+    {
+      "id": "mara",
+      "name": "Mara Ellison",
+      "role": "Research coordinator",
+      "statement": "I counted the display cards at 3:10. The calibration shed was locked when I left. I was carrying paper maps, not equipment.",
+      "followup": "The exhibit inventory sheet lists the unit as still at Station A when I closed the display.",
+      "question": "Which document would independently check Mara’s inventory claim?",
+      "options": [
+        "The signed inventory and time-stamped photos",
+        "A random weather forecast",
+        "The shape of the trail"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "theo",
+      "name": "Theo Vale",
+      "role": "Equipment technician",
+      "statement": "I checked the field equipment as the wind rose and later worked near the calibration shed. I had the blue tool case with me.",
+      "followup": "My intention was to update the shared instrument log before leaving; the entry was not finished.",
+      "question": "Which trace most directly helps evaluate the technician’s route?",
+      "options": [
+        "The font on the display card",
+        "Case-lining fibers at the shed",
+        "An unrelated shoe size chart"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "rowan",
+      "name": "Rowan Cole",
+      "role": "Trail volunteer",
+      "statement": "I saw a person in a reflective vest move toward the maintenance gate just after 3:20.",
+      "followup": "I could not identify the person or the object from that distance.",
+      "question": "Why does Rowan’s observation not establish identity?",
+      "options": [
+        "A reflective vest is unique",
+        "A gate has only one path",
+        "The distance and clothing description are not person-specific"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "jules",
+      "name": "Jules Moreno",
+      "role": "Student observer",
+      "statement": "My photo at 3:27 shows an empty sensor bracket and wet footprints nearby.",
+      "followup": "The sensor was present in an earlier photo at 3:12.",
+      "question": "Which interval is directly supported by Jules’s photos?",
+      "options": [
+        "3:12 to 3:27",
+        "After 4:05",
+        "Before the exhibit opened"
+      ],
+      "correct": 0
+    }
+  ],
+  "note": "Entirely fictional educational case using a real regional place name as setting. No actual person, facility, business, incident, or allegation is represented.",
+  "gradeBand": [
+    "5–6",
+    "7–8",
+    "9–10",
+    "11–12"
+  ]
+}

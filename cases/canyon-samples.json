@@ -1,0 +1,318 @@
+{
+  "id": "canyon-samples",
+  "num": "02",
+  "title": "The Canyon Sample Switch",
+  "place": "Cowiche Canyon",
+  "short": "Two habitat specimens seem to have swapped labels during a survey.",
+  "field": "Biology & trace evidence",
+  "accent": "#c7f18b",
+  "icon": "canyon",
+  "time": "22–30 min",
+  "brief": "A fictional ecology club used Cowiche Canyon as the setting for a survey workshop. Two sealed soil sample jars were labeled as creekside and upland, but their measurements appear reversed. The jars were never taken from any real protected site: this is a fictional classroom dataset. Use particle analysis, habitat clues, and the transfer log to determine how the switch occurred.",
+  "caseQuestion": "Who changed the sample labels, and which tests reveal the mix-up?",
+  "culprit": "eden",
+  "sites": [
+    {
+      "id": "creek",
+      "name": "Creekside survey table",
+      "label": "Fictional water-edge study station",
+      "desc": "The creekside worksheet records damp, fine material."
+    },
+    {
+      "id": "upland",
+      "name": "Upland marker",
+      "label": "Fictional shrub-steppe comparison point",
+      "desc": "The upland worksheet lists coarser, drier material."
+    },
+    {
+      "id": "desk",
+      "name": "Mobile sorting desk",
+      "label": "Temporary labeling surface",
+      "desc": "Two adhesive tags lie beneath a transparent cover."
+    },
+    {
+      "id": "archive",
+      "name": "Survey archive",
+      "label": "Field forms and photographs",
+      "desc": "The original jar numbers were written before transfer."
+    }
+  ],
+  "clues": [
+    {
+      "id": "c1",
+      "title": "Creekside field notes",
+      "site": "creek",
+      "detail": "The creekside note describes a dark, damp mixture containing many fine particles. No protected vegetation is disturbed in this fictional model.",
+      "question": "Which jar should match creekside notes?",
+      "options": [
+        "The finer, wetter sample",
+        "The coarsest and driest sample",
+        "Either sample regardless of properties"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "c2",
+      "title": "Upland field sketch",
+      "site": "upland",
+      "detail": "A sketch shows gritty material on an exposed slope away from the creek. The drawing is descriptive, not a real soil map.",
+      "question": "What would strengthen an upland assignment?",
+      "options": [
+        "A waterlogged fine-particle reading",
+        "A coarse-particle result",
+        "The same handwritten initials"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "c3",
+      "title": "Temporary adhesive tags",
+      "site": "desk",
+      "detail": "The tag marked U appears attached to a backing labeled C. The marker ink is fresh compared with the original archive sheet.",
+      "question": "What process likely created uncertainty?",
+      "options": [
+        "Soil changed into another type",
+        "Weather erased all data",
+        "Re-labeling without independent verification"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "c4",
+      "title": "Jar seal check",
+      "site": "desk",
+      "detail": "Neither seal is broken, and the sample masses match the earlier collection sheet. The contents were likely not poured into different jars.",
+      "question": "Which distinction matters?",
+      "options": [
+        "Mixed-up labels versus mixed-up contents",
+        "Weather versus astronomy",
+        "A suspect versus a chemical formula"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "c5",
+      "title": "Particle sieve readings",
+      "site": "archive",
+      "detail": "Jar 14 contains 62% coarse grains; Jar 29 contains 21%. The original field sheet assigns Jar 14 to the upland station.",
+      "question": "What does Jar 14 most strongly resemble?",
+      "options": [
+        "Creekside fine mud",
+        "The coarser upland sample",
+        "An unrelated laboratory control"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "c6",
+      "title": "Original photo log",
+      "site": "archive",
+      "detail": "Before the labels were rewritten, a photograph shows number 29 beside the creekside worksheet. It also shows 14 beside the upland worksheet.",
+      "question": "Why is the photograph valuable?",
+      "options": [
+        "It proves someone intended harm",
+        "It measures rainfall automatically",
+        "It preserves the original pairings"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "c7",
+      "title": "Transfer sheet",
+      "site": "archive",
+      "detail": "The transfer sheet has a single signature at the time of relabeling. No second person checked the correspondence between jar numbers and habitat names.",
+      "question": "What would reduce future switches?",
+      "options": [
+        "A two-person verification of identifiers",
+        "No labels on containers",
+        "Discarding the original photos"
+      ],
+      "correct": 0
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab1",
+      "title": "Particle comparison",
+      "method": "Soil texture",
+      "story": "Change coarse-particle fraction to model how a sample differs from fine creek material.",
+      "variable": {
+        "name": "Coarse fraction",
+        "min": 10,
+        "max": 70,
+        "step": 10,
+        "unit": "%"
+      },
+      "output": {
+        "name": "Texture index",
+        "base": 12,
+        "factor": 1.1,
+        "unit": "score",
+        "model": "linear"
+      },
+      "explanation": "Higher coarse fraction produces a higher texture index in this simplified proxy.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Higher coarse percentage supports a coarser specimen.",
+        "Particle percentage proves a person guilty.",
+        "Coarse and fine grains are identical."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "lab2",
+      "title": "Water retention",
+      "method": "Soil and water",
+      "story": "Change the fine fraction and compare a modeled water-holding score.",
+      "variable": {
+        "name": "Fine fraction",
+        "min": 10,
+        "max": 80,
+        "step": 10,
+        "unit": "%"
+      },
+      "output": {
+        "name": "Retention index",
+        "base": 9,
+        "factor": 1.05,
+        "unit": "score",
+        "model": "linear"
+      },
+      "explanation": "Fine material can change water retention, but real soil behavior depends on structure and organic matter.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Particle fraction never affects water properties.",
+        "Higher fine fraction can raise this model’s retention.",
+        "The index is a real field certification."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "lab3",
+      "title": "Label exposure",
+      "method": "Forensic ink stability",
+      "story": "Change elapsed exposure time to estimate a fictitious label readability score.",
+      "variable": {
+        "name": "Exposure",
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "unit": "hours"
+      },
+      "output": {
+        "name": "Readability",
+        "base": 100,
+        "factor": -7,
+        "unit": "score",
+        "model": "linear"
+      },
+      "explanation": "The label readability index is illustrative, not a validated ink-aging technique.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Longer exposure always improves paper tags.",
+        "A tag identifies its writer by color.",
+        "More exposure decreases readability in this model."
+      ],
+      "correct": 2
+    }
+  ],
+  "math": {
+    "prompt": "Jar 14 contains 62% coarse particles. If a 200 g model sample has that composition, how many grams are coarse?",
+    "answer": 124,
+    "unit": "g",
+    "hint": "Multiply the mass by 0.62."
+  },
+  "events": [
+    {
+      "id": "e1",
+      "label": "Original jar numbers recorded",
+      "time": "10:05"
+    },
+    {
+      "id": "e2",
+      "label": "Samples placed in sealed case",
+      "time": "10:42"
+    },
+    {
+      "id": "e3",
+      "label": "Wet labels replaced",
+      "time": "12:15"
+    },
+    {
+      "id": "e4",
+      "label": "Disagreement discovered in archive",
+      "time": "2:10"
+    }
+  ],
+  "evidence": [
+    "c3",
+    "c5",
+    "c6"
+  ],
+  "explanation": "The original photograph and particle measurements preserve the sample identities. The sample cataloger relabeled the containers, and no second verification prevented a name swap.",
+  "witnesses": [
+    {
+      "id": "eden",
+      "name": "Eden Marsh",
+      "role": "Sample cataloger",
+      "statement": "I was helping with the sample inventory after the paper tags got wet. I remember setting both jars on the same desk.",
+      "followup": "Two sticky labels overlapped, and I was working quickly when the group returned.",
+      "question": "Which item can test Eden’s memory of original jar numbers?",
+      "options": [
+        "Original photographs and number list",
+        "The color of the desk",
+        "The time of sunset"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "levi",
+      "name": "Levi Archer",
+      "role": "Field sketcher",
+      "statement": "I drew the sample sites from the trail, then returned with the group. I never handled the sealed lids.",
+      "followup": "The creekside site has visibly darker damp ground than the upland site.",
+      "question": "What could corroborate Levi’s habitat description?",
+      "options": [
+        "A visitor’s favorite trail",
+        "Particle measurements from each jar",
+        "A distant road sign"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "nina",
+      "name": "Nina Flores",
+      "role": "Survey lead",
+      "statement": "I checked that every sample had a lid and date. I did not inspect new handwriting after lunch.",
+      "followup": "We should have photographed each label before and after transfer.",
+      "question": "What check did Nina not complete?",
+      "options": [
+        "A second hike with new people",
+        "A new weather forecast",
+        "Verification of the replacement labels"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "omar",
+      "name": "Omar Bell",
+      "role": "Equipment monitor",
+      "statement": "I carried the box to the desk without opening it. One tag was stuck to the other.",
+      "followup": "The paper tags became damp during transport.",
+      "question": "How does Omar’s account relate to the labels?",
+      "options": [
+        "It suggests a possible transport complication",
+        "It proves the jar contents were swapped",
+        "It identifies an unrelated person"
+      ],
+      "correct": 0
+    }
+  ],
+  "note": "Entirely fictional educational case using a real regional place name as setting. No actual person, facility, business, incident, or allegation is represented.",
+  "gradeBand": [
+    "5–6",
+    "7–8",
+    "9–10",
+    "11–12"
+  ]
+}

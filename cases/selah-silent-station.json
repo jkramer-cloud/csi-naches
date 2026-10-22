@@ -1,0 +1,318 @@
+{
+  "id": "selah-silent-station",
+  "num": "05",
+  "title": "The Silent Signal",
+  "place": "Selah foothills",
+  "short": "A fictional observation station stops transmitting after its equipment is rearranged.",
+  "field": "Electricity & digital evidence",
+  "accent": "#ffdf91",
+  "icon": "station",
+  "time": "23–30 min",
+  "brief": "A fictional school-sponsored night-sky instrument station on an imagined property near Selah stopped sending messages during a demonstration. A power indicator went dark and a toolbox was moved. Students must analyze circuit readings, signal timing, and bench records to determine what interrupted the system. All people and the station are fictional.",
+  "caseQuestion": "Who changed the power connection, and does the timeline suggest an accidental setup mistake?",
+  "culprit": "casey",
+  "sites": [
+    {
+      "id": "rack",
+      "name": "Power distribution rack",
+      "label": "Fictional observation shelter",
+      "desc": "The backup cable is in a socket without a conducting contact."
+    },
+    {
+      "id": "desk",
+      "name": "Data control desk",
+      "label": "Transmission monitor",
+      "desc": "A final signal time matches the start of the voltage loss."
+    },
+    {
+      "id": "tools",
+      "name": "Tool staging bench",
+      "label": "Connectors and labels",
+      "desc": "The detached tag belongs to the backup cable."
+    },
+    {
+      "id": "pad",
+      "name": "Observation pad",
+      "label": "Outdoor instrument mount",
+      "desc": "The instrument itself is undamaged, and its power port is intact."
+    }
+  ],
+  "clues": [
+    {
+      "id": "s1",
+      "title": "Voltage drop",
+      "site": "rack",
+      "detail": "The model monitor shows 12 V immediately before interruption and 0 V immediately after. This points to a missing supply at the measurement point.",
+      "question": "What should be examined first?",
+      "options": [
+        "Power connections and supply path",
+        "The moon’s color",
+        "A visitor list from last week"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "s2",
+      "title": "Loose-style socket",
+      "site": "rack",
+      "detail": "The plug fits the adjacent unused receptacle mechanically but its contacts are recessed and do not carry power. The safe practice model contains no live wiring.",
+      "question": "Why might the instrument go dark?",
+      "options": [
+        "A sensor chooses another star",
+        "The connector is not electrically engaged",
+        "The air contains extra oxygen"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "s3",
+      "title": "Last digital packet",
+      "site": "desk",
+      "detail": "The system recorded its final complete data packet at 8:14:06 and a zero-voltage status at 8:14:07. The events are one second apart.",
+      "question": "What does the time sequence support?",
+      "options": [
+        "A new satellite arrived",
+        "Someone erased every file",
+        "Power loss closely preceded the signal stop"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "s4",
+      "title": "Independent archive",
+      "site": "desk",
+      "detail": "The local computer kept previously saved observations. Those files have normal checksums even though new messages stopped.",
+      "question": "Which conclusion is justified?",
+      "options": [
+        "The connection failed without proving earlier data corruption",
+        "All stored observations vanished",
+        "A storm was confirmed"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "s5",
+      "title": "Detached lead tag",
+      "site": "tools",
+      "detail": "A tag marked BACKUP-12V has fresh adhesive and fits the empty space on the spare cable.",
+      "question": "How should this clue be used?",
+      "options": [
+        "It proves motive",
+        "It helps associate a cable with its intended circuit",
+        "It gives an exact voltage at any time"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "s6",
+      "title": "Test setup notebook",
+      "site": "tools",
+      "detail": "A written note says backup connection test 8:14. The shared circuit diagram was not updated after an equipment rearrangement.",
+      "question": "What procedure was missing?",
+      "options": [
+        "A geology lesson",
+        "A second telescope",
+        "A checked and recorded connection change"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "s7",
+      "title": "Instrument inspection",
+      "site": "pad",
+      "detail": "No physical damage appears on the instrument’s connector. A simulated continuity check indicates the path from power rack to instrument is open.",
+      "question": "What is a reasonable technical conclusion?",
+      "options": [
+        "An interruption exists along the supply path",
+        "The instrument lens causes all voltage loss",
+        "Someone certainly intended harm"
+      ],
+      "correct": 0
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab1",
+      "title": "Voltage network",
+      "method": "Electric circuits",
+      "story": "Adjust supply voltage and compare a simplified output meter reading.",
+      "variable": {
+        "name": "Supply voltage",
+        "min": 3,
+        "max": 15,
+        "step": 3,
+        "unit": "V"
+      },
+      "output": {
+        "name": "Meter reading",
+        "base": 0,
+        "factor": 0.95,
+        "unit": "V",
+        "model": "linear"
+      },
+      "explanation": "In the idealized connected model, higher source voltage produces higher meter voltage.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "A connected meter reading depends on voltage.",
+        "Voltage identifies who moved a box.",
+        "A disconnected wire always shows full voltage."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "lab2",
+      "title": "Circuit resistance",
+      "method": "Ohm’s law",
+      "story": "Adjust resistance and estimate current for a fixed 12 V reference source.",
+      "variable": {
+        "name": "Resistance",
+        "min": 2,
+        "max": 12,
+        "step": 2,
+        "unit": "Ω"
+      },
+      "output": {
+        "name": "Current",
+        "base": 12,
+        "factor": 0,
+        "unit": "A",
+        "model": "inverse"
+      },
+      "explanation": "Ohm’s law describes ideal direct-current circuits; this is a teaching example.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Higher resistance causes higher current at fixed voltage.",
+        "Current decreases as resistance rises at fixed voltage.",
+        "Resistance measures elapsed time."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "lab3",
+      "title": "Data packet timing",
+      "method": "Digital communication",
+      "story": "Adjust sample interval and compare a modeled rate of packets per minute.",
+      "variable": {
+        "name": "Sample interval",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "s"
+      },
+      "output": {
+        "name": "Packet rate",
+        "base": 60,
+        "factor": 0,
+        "unit": "packets/min",
+        "model": "inverse"
+      },
+      "explanation": "Shorter intervals allow more packet attempts each minute in this simplified model.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "Long intervals create more packets per minute.",
+        "The rate proves intentional interference.",
+        "Shorter intervals increase the modeled packet rate."
+      ],
+      "correct": 2
+    }
+  ],
+  "math": {
+    "prompt": "In an ideal circuit a 12 V source is connected across a 4 Ω resistor. What current flows (I = V/R)?",
+    "answer": 3,
+    "unit": "A",
+    "hint": "Divide voltage by resistance."
+  },
+  "events": [
+    {
+      "id": "e1",
+      "label": "System sending normal data",
+      "time": "8:11"
+    },
+    {
+      "id": "e2",
+      "label": "Backup connection test started",
+      "time": "8:14"
+    },
+    {
+      "id": "e3",
+      "label": "Voltage status changes to zero",
+      "time": "8:14:07"
+    },
+    {
+      "id": "e4",
+      "label": "Circuit route inspected",
+      "time": "8:29"
+    }
+  ],
+  "evidence": [
+    "s1",
+    "s3",
+    "s6"
+  ],
+  "explanation": "The voltage timeline, signal timestamps, and backup-test note indicate a misplaced lead during an unverified power rerouting. The evidence supports a connection error, not necessarily deliberate damage.",
+  "witnesses": [
+    {
+      "id": "casey",
+      "name": "Casey Rowan",
+      "role": "Electronics builder",
+      "statement": "I was part of the backup supply test while equipment on the rack was being rearranged. The connectors looked unusually similar.",
+      "followup": "I expected the connections to be checked against the diagram before the demonstration resumed.",
+      "question": "Which observation would test Casey’s connector account?",
+      "options": [
+        "Inspect the physical socket engagement and diagram",
+        "Check a star chart for a different date",
+        "Ask which planet is brightest"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "lena",
+      "name": "Lena Cho",
+      "role": "Observation lead",
+      "statement": "I was calling out sky coordinates and did not touch the power rack.",
+      "followup": "My clipboard records the last received signal.",
+      "question": "What record could corroborate Lena’s last-signal time?",
+      "options": [
+        "An old astronomy textbook",
+        "The digital transmission log",
+        "A weather photograph"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "dev",
+      "name": "Dev Patel",
+      "role": "Data archivist",
+      "statement": "I copied the received data to a separate laptop. I did not change the wiring.",
+      "followup": "The messages stopped at exactly the same timestamp as a voltage drop.",
+      "question": "What do Dev’s saved data files help distinguish?",
+      "options": [
+        "The color of the cables",
+        "The sound of the fan",
+        "A new transmission failure from lost old data"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "arden",
+      "name": "Arden Pike",
+      "role": "Tool monitor",
+      "statement": "I moved the general toolbox to clear the passage, but the power leads stayed connected when I passed.",
+      "followup": "A label fell from the end of the backup lead earlier that night.",
+      "question": "How can Arden’s loose-label claim be checked?",
+      "options": [
+        "Match the tag to the cable and connector",
+        "Assume missing adhesive means sabotage",
+        "Discard any unlabeled cable"
+      ],
+      "correct": 0
+    }
+  ],
+  "note": "Entirely fictional educational case using a real regional place name as setting. No actual person, facility, business, incident, or allegation is represented.",
+  "gradeBand": [
+    "5–6",
+    "7–8",
+    "9–10",
+    "11–12"
+  ]
+}

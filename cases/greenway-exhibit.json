@@ -1,0 +1,318 @@
+{
+  "id": "greenway-exhibit",
+  "num": "04",
+  "title": "The Greenway Exhibit Puzzle",
+  "place": "Yakima Greenway",
+  "short": "A museum-style science exhibit seems to have been secretly replaced.",
+  "field": "Materials & light",
+  "accent": "#b3a2ff",
+  "icon": "greenway",
+  "time": "22–30 min",
+  "brief": "A fictional outdoor science exhibition inspired by the Yakima Greenway discovers that its brightly colored climate-information panel has changed appearance overnight. A nearby container holds a second panel. Use light exposure, pigment comparison, instrument logs, and witness accounts to determine whether the display was vandalized or temporarily replaced.",
+  "caseQuestion": "Who swapped the display panel, and what physical evidence distinguishes the two versions?",
+  "culprit": "brynn",
+  "sites": [
+    {
+      "id": "board",
+      "name": "Public exhibit frame",
+      "label": "Climate display panel",
+      "desc": "One panel has evenly printed halftone dots instead of irregular paint strokes."
+    },
+    {
+      "id": "closet",
+      "name": "Storage alcove",
+      "label": "Padded display sleeve",
+      "desc": "An original hand-painted panel is preserved behind a protective cover."
+    },
+    {
+      "id": "lamp",
+      "name": "Light testing bench",
+      "label": "UV exposure meter",
+      "desc": "A worksheet compares pigment changes under controlled demonstration lighting."
+    },
+    {
+      "id": "guide",
+      "name": "Volunteer desk",
+      "label": "Exhibit change log",
+      "desc": "The official display change list has no temporary replacement entry."
+    }
+  ],
+  "clues": [
+    {
+      "id": "g1",
+      "title": "Panel magnification",
+      "site": "board",
+      "detail": "At magnification, the displayed panel contains regular arrays of tiny printed dots. The archived original has uneven hand-painted pigment boundaries.",
+      "question": "What does the repeating dot pattern suggest?",
+      "options": [
+        "A printed reproduction",
+        "A new naturally growing pigment",
+        "A clock-reading error"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "g2",
+      "title": "Mounting tabs",
+      "site": "board",
+      "detail": "The clear frame has no cracks. Its tabs show recent tool-free opening and resealing.",
+      "question": "What can be inferred?",
+      "options": [
+        "Only vandalism is possible",
+        "The frame was opened without breaking it",
+        "The color was caused by rainfall alone"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "g3",
+      "title": "Protected artwork",
+      "site": "closet",
+      "detail": "The stored panel has unique brush patterns matching the older photograph, and it is safely sealed in a padded sleeve.",
+      "question": "Why is the matching texture useful?",
+      "options": [
+        "It proves a weather forecast",
+        "It identifies a footprint",
+        "It links the stored panel to the original display"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "g4",
+      "title": "Exposure study",
+      "site": "lamp",
+      "detail": "A simulated UV-exposure comparison shows that delicate pigments may change with accumulated light exposure. Actual conservation depends on material and wavelength.",
+      "question": "Why would a conservator remove an original panel temporarily?",
+      "options": [
+        "To limit unnecessary light exposure",
+        "To make a weather station faster",
+        "To change a person’s handwriting"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "g5",
+      "title": "Replica ink strip",
+      "site": "lamp",
+      "detail": "A small printed proof sheet uses the same regular dot pattern and colors as the public panel.",
+      "question": "Which link does this support?",
+      "options": [
+        "A chemical explosion",
+        "The installed panel is likely a printed replica",
+        "An exact fingerprint identification"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "g6",
+      "title": "Visitor photographs",
+      "site": "guide",
+      "detail": "Two photographs taken one day apart show subtle differences in letter edges but the same overall illustration.",
+      "question": "What is the reasonable conclusion?",
+      "options": [
+        "The exhibit relocated to another city",
+        "A person confessed in writing",
+        "Two similar versions may have been shown"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "g7",
+      "title": "Missing change entry",
+      "site": "guide",
+      "detail": "The official log still lists the original as on display. A separate conservation note mentions a temporary replica trial.",
+      "question": "What process should improve?",
+      "options": [
+        "Record substitutions in the shared exhibit log",
+        "Keep changes secret to reduce confusion",
+        "Destroy older paperwork"
+      ],
+      "correct": 0
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab1",
+      "title": "UV exposure index",
+      "method": "Light and pigments",
+      "story": "Adjust relative light intensity and compare a simplified exposure index.",
+      "variable": {
+        "name": "Light intensity",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "units"
+      },
+      "output": {
+        "name": "Exposure index",
+        "base": 0,
+        "factor": 8,
+        "unit": "score",
+        "model": "linear"
+      },
+      "explanation": "Higher light intensity raises cumulative exposure in this fixed-time teaching model.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "More light can increase the exposure index.",
+        "Light intensity identifies a person.",
+        "A photograph measures exact UV dose."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "lab2",
+      "title": "Print pattern model",
+      "method": "Visual comparison",
+      "story": "Change dot density and observe the number of marks in a fixed sample window.",
+      "variable": {
+        "name": "Dot density",
+        "min": 10,
+        "max": 80,
+        "step": 10,
+        "unit": "dots/cm"
+      },
+      "output": {
+        "name": "Dot count",
+        "base": 0,
+        "factor": 2,
+        "unit": "marks",
+        "model": "linear"
+      },
+      "explanation": "Printed dot arrays can be differentiated from irregular paint marks at sufficient magnification.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "A more regular print always uses fewer dots.",
+        "Increasing dot density increases dots in a fixed width.",
+        "All drawings have perfectly regular dot rows."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "lab3",
+      "title": "Shield transmission",
+      "method": "Material screening",
+      "story": "Adjust shield transmission and estimate light passing through.",
+      "variable": {
+        "name": "Transmission",
+        "min": 10,
+        "max": 100,
+        "step": 10,
+        "unit": "%"
+      },
+      "output": {
+        "name": "Passed light",
+        "base": 0,
+        "factor": 1,
+        "unit": "index",
+        "model": "linear"
+      },
+      "explanation": "Lower transmission means less modeled light passes through the shield.",
+      "question": "Which scientific interpretation is best supported by this model?",
+      "options": [
+        "A shield sets the calendar date.",
+        "Lower transmission increases the modeled light.",
+        "Lower transmission passes less light in this model."
+      ],
+      "correct": 2
+    }
+  ],
+  "math": {
+    "prompt": "A shield allows 30% of 200 light units through. How many units pass through it?",
+    "answer": 60,
+    "unit": "units",
+    "hint": "Calculate 0.30 × 200."
+  },
+  "events": [
+    {
+      "id": "e1",
+      "label": "Original exhibit photographed",
+      "time": "Monday 3:30"
+    },
+    {
+      "id": "e2",
+      "label": "Replica comparison printed",
+      "time": "Tuesday 9:20"
+    },
+    {
+      "id": "e3",
+      "label": "Display frame opened",
+      "time": "Tuesday 10:10"
+    },
+    {
+      "id": "e4",
+      "label": "Different panel noticed",
+      "time": "Wednesday 9:05"
+    }
+  ],
+  "evidence": [
+    "g1",
+    "g3",
+    "g7"
+  ],
+  "explanation": "Print magnification, the matching protected original, and the conservation note support a temporary unrecorded substitution by the exhibit conservator, rather than proof of vandalism.",
+  "witnesses": [
+    {
+      "id": "brynn",
+      "name": "Brynn Kade",
+      "role": "Exhibit conservator",
+      "statement": "I had discussed the possibility of using a printed replica during a conservation test. I inspected both display materials.",
+      "followup": "I kept a separate conservation note, but the public display-change log was not yet checked.",
+      "question": "Which physical comparison best tests Brynn’s conservation explanation?",
+      "options": [
+        "Compare print dots with the stored painted panel",
+        "Count nearby ducks",
+        "Compare the weather in other counties"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "imani",
+      "name": "Imani Voss",
+      "role": "Weekend guide",
+      "statement": "I locked the exhibit door after visitor hours. I did not open the display frame.",
+      "followup": "I did see a padded carrying sleeve near the storage alcove.",
+      "question": "How could the guide’s sleeve sighting be checked?",
+      "options": [
+        "Guess what was inside the sleeve",
+        "Inspect the sleeve and inventory records",
+        "Assume a padded sleeve implies damage"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "felix",
+      "name": "Felix Brooks",
+      "role": "Lighting volunteer",
+      "statement": "I tested two different lamp covers on the demonstration board.",
+      "followup": "The light meter was logged before I left.",
+      "question": "What does Felix’s lighting test not identify?",
+      "options": [
+        "Possible light exposure",
+        "An exposure measurement",
+        "The person who exchanged the panel"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "dara",
+      "name": "Dara Wynn",
+      "role": "Student journalist",
+      "statement": "I took photographs both afternoons from the same marked location.",
+      "followup": "The smaller title letters looked slightly different in the later photo.",
+      "question": "Which method makes Dara’s photographs useful comparisons?",
+      "options": [
+        "Use similar framing and compare visual details",
+        "Ignore the date metadata",
+        "Assume all colors are identical"
+      ],
+      "correct": 0
+    }
+  ],
+  "note": "Entirely fictional educational case using a real regional place name as setting. No actual person, facility, business, incident, or allegation is represented.",
+  "gradeBand": [
+    "5–6",
+    "7–8",
+    "9–10",
+    "11–12"
+  ]
+}
